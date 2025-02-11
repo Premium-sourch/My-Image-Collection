@@ -1,17 +1,5 @@
 [
   {
-    "url": "images/photo1.jpg",
-    "alt": "Beautiful Nature",
-    "category": "Nature",
-    "tags": "forest trees green"
-  },
-  {
-    "src": "images/photo2.jpg",
-    "alt": "Wild Lion",
-    "category": "Animal",
-    "tags": "lion wild king"
-  },
-  {
     "src": "images/photo3.jpg",
     "alt": "Anime Character",
     "category": "Anime",
@@ -65,10 +53,5 @@
       "category":"Animal",
       "tag":"cow"
     },
-  {
-  "src": "images/photo12.jpg",
-      "alt":"rakib",
-      "category":"Animal",
-      "tag":"cow"}
 
 ]
