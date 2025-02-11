@@ -1,24 +1,32 @@
 // Function to load images from a JSON file
 async function loadImages() {
-  const response = await fetch('data.json'); // Fetch the JSON file
-  const imagesData = await response.json(); // Parse the JSON data
-  
-  const gallery = document.getElementById('gallery');
-  
-  // Loop through the images data and create image elements
-  imagesData.forEach(imageData => {
-    const imageElement = document.createElement('div');
-    imageElement.classList.add('image', imageData.category);
-    imageElement.setAttribute('data-tags', imageData.tags);
+  try {
+    const response = await fetch('data.json'); // Fetch the JSON file
+    if (!response.ok) throw new Error('Failed to load JSON data'); // Error handling for network issues
 
-    const img = document.createElement('img');
-    img.src = imageData.src;
-    img.alt = imageData.alt;
-    img.onclick = () => openModal(imageData.src);
+    const imagesData = await response.json(); // Parse the JSON data
+    const gallery = document.getElementById('gallery');
 
-    imageElement.appendChild(img);
-    gallery.appendChild(imageElement);
-  });
+    // Loop through the images data and create image elements
+    imagesData.forEach(imageData => {
+      const imageElement = document.createElement('div');
+      imageElement.classList.add('image', imageData.category);
+      imageElement.setAttribute('data-tags', imageData.tags);
+
+      const img = document.createElement('img');
+      img.src = imageData.src;
+      img.alt = imageData.alt;
+      img.onclick = () => openModal(imageData.src);
+
+      imageElement.appendChild(img);
+      gallery.appendChild(imageElement);
+    });
+
+    // Show all images by default on page load
+    showCategory('All');
+  } catch (error) {
+    console.error(error); // Log any errors (network or parsing)
+  }
 }
 
 // Show images by category
@@ -32,30 +40,35 @@ function showCategory(category) {
     }
   });
 
+  // Smooth scroll to gallery
   document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' });
 }
 
 // Search function
+let searchTimeout;
 function searchImages() {
-  let searchInput = document.getElementById('searchBar').value.toLowerCase();
-  let images = document.querySelectorAll('.image');
-  let matchedImages = [];
+  clearTimeout(searchTimeout); // Clear any previous timeout
+  searchTimeout = setTimeout(() => {
+    let searchInput = document.getElementById('searchBar').value.toLowerCase();
+    let images = document.querySelectorAll('.image');
+    let matchedImages = [];
 
-  images.forEach(image => {
-    let altText = image.querySelector('img').alt.toLowerCase();
-    let tags = image.dataset.tags.toLowerCase();
+    images.forEach(image => {
+      let altText = image.querySelector('img').alt.toLowerCase();
+      let tags = image.dataset.tags.toLowerCase();
 
-    if (altText.includes(searchInput) || tags.includes(searchInput)) {
-      matchedImages.push(image);
-    } else {
-      image.style.display = 'none';
-    }
-  });
+      if (altText.includes(searchInput) || tags.includes(searchInput)) {
+        matchedImages.push(image);
+      } else {
+        image.style.display = 'none';
+      }
+    });
 
-  matchedImages.forEach(image => {
-    image.style.display = 'block';
-    document.getElementById('gallery').prepend(image);
-  });
+    matchedImages.forEach(image => {
+      image.style.display = 'block';
+      document.getElementById('gallery').prepend(image);
+    });
+  }, 300); // Debounced search to prevent excessive function calls
 }
 
 function clearSearch() {
