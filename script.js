@@ -1,6 +1,6 @@
 // Function to load images from a JSON file
 async function loadImages() {
-  const response = await fetch('/data.json'); // Fetch the JSON file
+  const response = await fetch('data.json'); // Fetch the JSON file
   const imagesData = await response.json(); // Parse the JSON data
   
   const gallery = document.getElementById('gallery');
