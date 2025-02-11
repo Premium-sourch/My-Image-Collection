@@ -11,46 +11,46 @@
     "category": "Object",
     "tags": "lamp light decor"
   },
-    {
+  {
     "src": "images/photo5.jpg",
     "alt": "Decorative Lamp",
     "category": "Object",
     "tags": "lamp light decor"
   },
   {
-  "src": "images/photo6.jpg",
-      "alt":"rakib",
-      "category":"Animal",
-      "tag":"cow"
-    },
+    "src": "images/photo6.jpg",
+    "alt": "rakib",
+    "category": "Animal",
+    "tags": "cow"
+  },
   {
-  "src": "images/photo7.jpg",
-      "alt":"rakib",
-      "category":"Animal",
-      "tag":"cow"
-    },
+    "src": "images/photo7.jpg",
+    "alt": "rakib",
+    "category": "Animal",
+    "tags": "cow"
+  },
   {
-  "src": "images/photo8.jpg",
-      "alt":"rakib",
-      "category":"Animal",
-      "tag":"cow"
-    },
+    "src": "images/photo8.jpg",
+    "alt": "rakib",
+    "category": "Animal",
+    "tags": "cow"
+  },
   {
-  "src": "images/photo9.jpg",
-      "alt":"rakib",
-      "category":"Animal",
-      "tag":"cow"
-    },
+    "src": "images/photo9.jpg",
+    "alt": "rakib",
+    "category": "Animal",
+    "tags": "cow"
+  },
   {
-  "src": "images/photo10.jpg",
-      "alt":"rakib",
-      "category":"Animal",
-      "tag":"cow"
-    },
+    "src": "images/photo10.jpg",
+    "alt": "rakib",
+    "category": "Animal",
+    "tags": "cow"
+  },
   {
-  "src": "images/photo11.jpg",
-      "alt":"rakib",
-      "category":"Animal",
-      "tag":"cow"
-    }
+    "src": "images/photo11.jpg",
+    "alt": "rakib",
+    "category": "Animal",
+    "tags": "cow"
+  }
 ]
