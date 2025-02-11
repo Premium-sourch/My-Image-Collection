@@ -91,14 +91,10 @@ body {
   background-color: #d1d5db;
 }
 
-/* Gallery */
 .gallery {
   column-count: 4;
-  gap: 1rem;
+  gap: 0.5rem;
   padding: 4rem;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* Grid layout */
-  grid-gap: 1rem;
 }
 
 .image img {
